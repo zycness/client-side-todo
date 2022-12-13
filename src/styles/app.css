@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700;900&family=Roboto:wght@100;400;700;900&display=swap");
+
+:root {
+  --font1: "Poppins", sans-serif;
+  --font2: "Roboto", sans-serif;
+  --color-10: #00adb5;
+  --color-30: #292e35;
+  --color-60: #222831;
+  --color-white: #eeeeee;
+  --color-white-1: #d8d7d7;
+  --color-white-2: #bdbdbd;
+  --color-white-3: #9e9d9d;
+  --color-white-4: #777777;
+  --shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+* {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* footer */
+
+#footer {
+  height: 100px;
+  background-color: var(--color-30);
+  font-family: var(--font1);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_title {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer_link {
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+}

@@ -1,0 +1,294 @@
+#tasks {
+  position: relative;
+  background-color: var(--color-60);
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+.tasks_form_container {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 900;
+}
+
+.tasks_form_container::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 500;
+}
+
+.tasks_form {
+  position: relative;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-start;
+  background-color: var(--color-30);
+  padding: 50px 40px;
+  border-radius: 10px;
+  z-index: 600;
+}
+
+.tasksCreate_btn_close {
+  background-color: transparent;
+  border: none;
+  justify-self: flex-end;
+  align-self: flex-end;
+  cursor: pointer;
+  color: red;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  transition: transform ease-out 100ms;
+}
+.tasksCreate_btn_close:hover {
+  transform: scale(1.1);
+}
+
+.tasks_btn {
+  background-color: var(--color-30);
+  border: none;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease 300ms;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tasks_btn:active {
+  transform: scale(0.9);
+}
+.tasks_btn:hover {
+  transform: scale(1.1);
+}
+
+/* checkbox */
+/* From uiverse.io by @mrhyddenn */
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  font-family: var(--font2);
+  color: var(--color-white-3);
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  margin: 20px 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background: #606062;
+  border-radius: 7px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 1px 1px rgba(0, 5);
+  margin-left: 5px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-image: linear-gradient(#255cd2, #1d52c1);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.45em;
+  top: 0.2em;
+  width: 0.24em;
+  height: 0.6em;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+/* button create task */
+
+.createTask_btn {
+  --color: #00a97f;
+  padding: 0.8em 1.7em;
+  background-color: transparent;
+  border-radius: 0.3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 400;
+  font-size: 17px;
+  border: 1px solid;
+  font-family: var(--font2);
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+}
+
+.createTask_btn::before,
+.createTask_btn::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 400ms ease;
+}
+
+.createTask_btn::before {
+  top: -1em;
+  left: -1em;
+}
+
+.createTask_btn::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+}
+
+.createTask_btn:hover::before,
+.createTask_btn:hover::after {
+  height: 410px;
+  width: 410px;
+}
+
+.createTask_btn:hover {
+  color: rgb(10, 25, 30);
+}
+
+.createTask_btn:active {
+  filter: brightness(0.8);
+}
+
+/* task item */
+
+.taskList {
+  padding: 100px 50px 0 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 10px;
+  list-style-type: none;
+  color: var(--color-white);
+  font-family: var(--font2);
+}
+
+.taskList_item {
+  min-height: 150px;
+  position: relative;
+  background-color: var(--color-30);
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.taskList_item_title::first-letter,
+.taskList_item_desc::first-letter {
+  text-transform: uppercase;
+}
+
+.taskList_item_title {
+  color: var(--color-white-1);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.taskList_item_desc {
+  color: var(--color-white-3);
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding-bottom: 10px;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  max-height: 200px;
+}
+
+.taskList_item_date {
+  color: var(--color-white-4);
+  font-weight: 400;
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+
+/* actions */
+
+.taskList_item_actions {
+  height: 40px;
+}
+
+.taskList_item_editBtn {
+  top: 5px;
+  left: 10px;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform ease-in 150ms;
+}
+
+.taskList_item_deleteBtn {
+  top: 7px;
+  left: 40px;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform ease-in 150ms;
+}
+
+.taskList_item_deleteBtn:hover,
+.taskList_item_editBtn:hover {
+  transform: scale(0.9);
+}
+
+.taskList_item_completed {
+  top: 5px;
+  right: 5px;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+}
+
+/* tasks edit */
